@@ -15,6 +15,8 @@
 		5DA1CC981E65113800F818DB /* Week7_HomeworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1CC971E65113800F818DB /* Week7_HomeworkTests.swift */; };
 		5DA1CCA31E65113800F818DB /* Week7_HomeworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1CCA21E65113800F818DB /* Week7_HomeworkUITests.swift */; };
 		5DA1CCB11E65114800F818DB /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1CCB01E65114800F818DB /* README.md */; };
+		5DACAF1B1E65387500D37B9E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DACAF1A1E65387500D37B9E /* Location.swift */; };
+		5DACAF1D1E65391F00D37B9E /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DACAF1C1E65391F00D37B9E /* LocationTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		5DA1CCA21E65113800F818DB /* Week7_HomeworkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week7_HomeworkUITests.swift; sourceTree = "<group>"; };
 		5DA1CCA41E65113800F818DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DA1CCB01E65114800F818DB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5DACAF1A1E65387500D37B9E /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		5DACAF1C1E65391F00D37B9E /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				5DA1CC891E65113800F818DB /* Assets.xcassets */,
 				5DA1CC821E65113800F818DB /* AppDelegate.swift */,
 				5DA1CC841E65113800F818DB /* ViewController.swift */,
+				5DACAF1C1E65391F00D37B9E /* LocationTableViewCell.swift */,
+				5DACAF1A1E65387500D37B9E /* Location.swift */,
 				5DA1CC8B1E65113800F818DB /* LaunchScreen.storyboard */,
 				5DA1CC861E65113800F818DB /* Main.storyboard */,
 				5DA1CC8E1E65113800F818DB /* Info.plist */,
@@ -267,6 +273,8 @@
 			files = (
 				5DA1CCB11E65114800F818DB /* README.md in Sources */,
 				5DA1CC851E65113800F818DB /* ViewController.swift in Sources */,
+				5DACAF1D1E65391F00D37B9E /* LocationTableViewCell.swift in Sources */,
+				5DACAF1B1E65387500D37B9E /* Location.swift in Sources */,
 				5DA1CC831E65113800F818DB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,6 +526,7 @@
 				5DA1CCA91E65113800F818DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5DA1CCAA1E65113800F818DB /* Build configuration list for PBXNativeTarget "Week7 HomeworkTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +535,7 @@
 				5DA1CCAC1E65113800F818DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5DA1CCAD1E65113800F818DB /* Build configuration list for PBXNativeTarget "Week7 HomeworkUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +544,7 @@
 				5DA1CCAF1E65113800F818DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
