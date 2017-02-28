@@ -14,6 +14,7 @@
 		5DA1CC8D1E65113800F818DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DA1CC8B1E65113800F818DB /* LaunchScreen.storyboard */; };
 		5DA1CC981E65113800F818DB /* Week7_HomeworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1CC971E65113800F818DB /* Week7_HomeworkTests.swift */; };
 		5DA1CCA31E65113800F818DB /* Week7_HomeworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1CCA21E65113800F818DB /* Week7_HomeworkUITests.swift */; };
+		5DA1CCB11E65114800F818DB /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1CCB01E65114800F818DB /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		5DA1CC9E1E65113800F818DB /* Week7 HomeworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Week7 HomeworkUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DA1CCA21E65113800F818DB /* Week7_HomeworkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week7_HomeworkUITests.swift; sourceTree = "<group>"; };
 		5DA1CCA41E65113800F818DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DA1CCB01E65114800F818DB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		5DA1CC761E65113800F818DB = {
 			isa = PBXGroup;
 			children = (
+				5DA1CCB01E65114800F818DB /* README.md */,
 				5DA1CC811E65113800F818DB /* Week7 Homework */,
 				5DA1CC961E65113800F818DB /* Week7 HomeworkTests */,
 				5DA1CCA11E65113800F818DB /* Week7 HomeworkUITests */,
@@ -97,11 +100,11 @@
 		5DA1CC811E65113800F818DB /* Week7 Homework */ = {
 			isa = PBXGroup;
 			children = (
+				5DA1CC891E65113800F818DB /* Assets.xcassets */,
 				5DA1CC821E65113800F818DB /* AppDelegate.swift */,
 				5DA1CC841E65113800F818DB /* ViewController.swift */,
-				5DA1CC861E65113800F818DB /* Main.storyboard */,
-				5DA1CC891E65113800F818DB /* Assets.xcassets */,
 				5DA1CC8B1E65113800F818DB /* LaunchScreen.storyboard */,
+				5DA1CC861E65113800F818DB /* Main.storyboard */,
 				5DA1CC8E1E65113800F818DB /* Info.plist */,
 			);
 			path = "Week7 Homework";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DA1CCB11E65114800F818DB /* README.md in Sources */,
 				5DA1CC851E65113800F818DB /* ViewController.swift in Sources */,
 				5DA1CC831E65113800F818DB /* AppDelegate.swift in Sources */,
 			);
