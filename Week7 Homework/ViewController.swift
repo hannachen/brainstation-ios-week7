@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, Updatable {
     // Outlets
     @IBOutlet var locationTableView: UITableView!
     
@@ -50,13 +50,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dequeueing our cell
         let cell: LocationTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LocationTableViewCell // Using ! here is a rare exception...
         
+        cell.updateDelegate = self
+        cell.rowIndex = indexPath.row
+        
         // Set cell data
         cell.setupCellWith(location: self.locations[indexPath.row])
         
         return cell
     }
     
-    func prepareForSegue(segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if (segue.identifier == "detailview") {
             let cell = sender as? LocationTableViewCell
             let indexPath = self.locationTableView.indexPath(for: cell!)
@@ -68,6 +72,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             }
         }
+    }
+    
+    func update(location: Location, index: Int) {
+        self.locations[index] = location
     }
 
 }

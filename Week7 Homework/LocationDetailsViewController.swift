@@ -11,7 +11,9 @@ import UIKit
 class LocationDetailsViewController: UIViewController {
     // Outlets
     @IBOutlet var locationImageView: UIImageView!
+    @IBOutlet var locationNameLabel: UILabel!
     @IBOutlet var descriptionTextView: UITextView!
+    @IBOutlet var locationDetailsScrollView: UIScrollView!
     
     // Properties
     var location: Location?
@@ -20,6 +22,24 @@ class LocationDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // onLoad Animation
+        UIView.animate(withDuration: 0.25, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            self.descriptionTextView.alpha = 1
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+        super.viewDidLayoutSubviews()
+        
+        // Disable text view scroll so that scroll view is activated
+        self.descriptionTextView.isScrollEnabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,19 +51,11 @@ class LocationDetailsViewController: UIViewController {
         super.viewWillAppear(animated)
         
         if let location = self.location {
+            self.title = "About \(location.name)"
+            self.locationNameLabel.text = location.name
             self.locationImageView.image = location.image
             self.descriptionTextView.text = location.description
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

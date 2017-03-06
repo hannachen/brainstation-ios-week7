@@ -16,10 +16,11 @@ class Location {
     var color: UIColor
     var visited: Bool = false
     
-    init(name: String, image: UIImage, description: String, color: UIColor) {
+    init(name: String, image: UIImage, description: String, color: UIColor, visited: Bool = false) {
         self.name = name
         self.image = image
         self.description = description
         self.color = color
+        self.visited = visited
     }
 }
