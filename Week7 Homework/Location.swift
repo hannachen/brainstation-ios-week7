@@ -13,14 +13,12 @@ class Location {
     var name: String
     var image: UIImage
     var description: String
-    var color: UIColor
     var visited: Bool = false
     
-    init(name: String, image: UIImage, description: String, color: UIColor, visited: Bool = false) {
+    init(name: String, image: UIImage, description: String, visited: Bool = false) {
         self.name = name
         self.image = image
         self.description = description
-        self.color = color
         self.visited = visited
     }
 }
