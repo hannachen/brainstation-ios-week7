@@ -8,42 +8,40 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // Outlets
     @IBOutlet var locationTableView: UITableView!
     
-    // Properties
-    
     // Data
-    let locations: [Location] = [
-        Location(name: "Niagra Falls", duration: 1),
-        Location(name: "Chicago", duration: 2),
-        Location(name: "France", duration: 0),
-        Location(name: "New York", duration: 4),
-        Location(name: "Tokyo", duration: 12),
-        Location(name: "Iceland", duration: 0),
-        Location(name: "Australia", duration: 0),
-        Location(name: "Germany", duration: 0),
-        Location(name: "Peru", duration: 10),
-        Location(name: "China", duration: 0),
-        Location(name: "Thailand", duration: 0),
-        Location(name: "Los Angelos", duration: 4),
-        Location(name: "New Zealand", duration: 0),
-        Location(name: "Vanocuver", duration: 7)
-    ]
+    let manager = LocationDataSource()
+    
+    // Properties
+    var locations: [Location] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Assigns "self" as the delegate, similar to the previous lesson
+        // Set title
+        self.title = "Travel to these places!"
+        
+        // Assign "self" as the delegate, similar to the previous lesson
+        self.locationTableView.delegate = self
+        
+        // Assigns "self" as the data source
         self.locationTableView.dataSource = self
+        
+        self.locations = manager.getLocations()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // Num of cells to create
+        return self.locations.count
+    }
     
     // UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,14 +50,24 @@ class ViewController: UIViewController, UITableViewDataSource {
         // Dequeueing our cell
         let cell: LocationTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LocationTableViewCell // Using ! here is a rare exception...
         
-        // Set text on cell
+        // Set cell data
         cell.setupCellWith(location: self.locations[indexPath.row])
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.locations.count
+    func prepareForSegue(segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "detailview") {
+            let cell = sender as? LocationTableViewCell
+            let indexPath = self.locationTableView.indexPath(for: cell!)
+            
+            if let detailsViewController = segue.destination as? LocationDetailsViewController {
+                if let location = self.locations[indexPath!.row] as Location? {
+                    detailsViewController.location = location
+                }
+            
+            }
+        }
     }
 
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D14EE4F1E6D4E1700E01D2F /* LocationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D14EE4E1E6D4E1700E01D2F /* LocationDataSource.swift */; };
+		5D14EE581E6D549900E01D2F /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D14EE571E6D549900E01D2F /* LocationDetailsViewController.swift */; };
 		5DA1CC831E65113800F818DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1CC821E65113800F818DB /* AppDelegate.swift */; };
 		5DA1CC851E65113800F818DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1CC841E65113800F818DB /* ViewController.swift */; };
 		5DA1CC881E65113800F818DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DA1CC861E65113800F818DB /* Main.storyboard */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D14EE4E1E6D4E1700E01D2F /* LocationDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDataSource.swift; sourceTree = "<group>"; };
+		5D14EE571E6D549900E01D2F /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
 		5DA1CC7F1E65113800F818DB /* Week7 Homework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Week7 Homework.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DA1CC821E65113800F818DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DA1CC841E65113800F818DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				5DA1CC821E65113800F818DB /* AppDelegate.swift */,
 				5DA1CC841E65113800F818DB /* ViewController.swift */,
 				5DACAF1C1E65391F00D37B9E /* LocationTableViewCell.swift */,
+				5D14EE571E6D549900E01D2F /* LocationDetailsViewController.swift */,
+				5D14EE4E1E6D4E1700E01D2F /* LocationDataSource.swift */,
 				5DACAF1A1E65387500D37B9E /* Location.swift */,
 				5DA1CC8B1E65113800F818DB /* LaunchScreen.storyboard */,
 				5DA1CC861E65113800F818DB /* Main.storyboard */,
@@ -273,9 +279,11 @@
 			files = (
 				5DA1CCB11E65114800F818DB /* README.md in Sources */,
 				5DA1CC851E65113800F818DB /* ViewController.swift in Sources */,
+				5D14EE581E6D549900E01D2F /* LocationDetailsViewController.swift in Sources */,
 				5DACAF1D1E65391F00D37B9E /* LocationTableViewCell.swift in Sources */,
 				5DACAF1B1E65387500D37B9E /* Location.swift in Sources */,
 				5DA1CC831E65113800F818DB /* AppDelegate.swift in Sources */,
+				5D14EE4F1E6D4E1700E01D2F /* LocationDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

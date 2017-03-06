@@ -7,13 +7,19 @@
 //
 
 import Foundation
+import UIKit
 
 class Location {
     var name: String
-    var duration: Int
+    var image: UIImage
+    var description: String
+    var color: UIColor
+    var visited: Bool = false
     
-    init(name: String, duration: Int) {
+    init(name: String, image: UIImage, description: String, color: UIColor) {
         self.name = name
-        self.duration = duration
+        self.image = image
+        self.description = description
+        self.color = color
     }
 }
