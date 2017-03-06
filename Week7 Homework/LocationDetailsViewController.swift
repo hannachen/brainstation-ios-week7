@@ -9,6 +9,7 @@
 import UIKit
 
 class LocationDetailsViewController: UIViewController {
+    
     // Outlets
     @IBOutlet var locationImageView: UIImageView!
     @IBOutlet var locationNameLabel: UILabel!
@@ -17,11 +18,19 @@ class LocationDetailsViewController: UIViewController {
     
     // Properties
     var location: Location?
+    
+    var paragraphStyle = NSMutableParagraphStyle()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Typesetting paragraph styles
+        self.paragraphStyle.lineSpacing = 5
+        let attributes = [NSParagraphStyleAttributeName : self.paragraphStyle]
+        self.descriptionTextView.attributedText = NSAttributedString(string: self.descriptionTextView.text, attributes:attributes)
+        if let fontStyle =  self.descriptionTextView.font as UIFont? {
+            self.descriptionTextView.font = UIFont(name: fontStyle.fontName, size: 14)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
