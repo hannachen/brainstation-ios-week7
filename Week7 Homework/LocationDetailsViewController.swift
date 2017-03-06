@@ -15,6 +15,7 @@ class LocationDetailsViewController: UIViewController {
     @IBOutlet var locationNameLabel: UILabel!
     @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var locationDetailsScrollView: UIScrollView!
+    @IBOutlet var locationVisitedLabel: UIView!
     
     // Properties
     var location: Location?
@@ -64,6 +65,7 @@ class LocationDetailsViewController: UIViewController {
             self.locationNameLabel.text = location.name
             self.locationImageView.image = location.image
             self.descriptionTextView.text = location.description
+            self.locationVisitedLabel.isHidden = location.visited ? false : true
         }
     }
 

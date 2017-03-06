@@ -17,7 +17,6 @@
 		5DA1CC8D1E65113800F818DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DA1CC8B1E65113800F818DB /* LaunchScreen.storyboard */; };
 		5DA1CC981E65113800F818DB /* Week7_HomeworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1CC971E65113800F818DB /* Week7_HomeworkTests.swift */; };
 		5DA1CCA31E65113800F818DB /* Week7_HomeworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1CCA21E65113800F818DB /* Week7_HomeworkUITests.swift */; };
-		5DA1CCB11E65114800F818DB /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1CCB01E65114800F818DB /* README.md */; };
 		5DACAF1B1E65387500D37B9E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DACAF1A1E65387500D37B9E /* Location.swift */; };
 		5DACAF1D1E65391F00D37B9E /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DACAF1C1E65391F00D37B9E /* LocationTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -280,7 +279,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DA1CCB11E65114800F818DB /* README.md in Sources */,
 				5DA1CC851E65113800F818DB /* ViewController.swift in Sources */,
 				5D14EE581E6D549900E01D2F /* LocationDetailsViewController.swift in Sources */,
 				5DACAF1D1E65391F00D37B9E /* LocationTableViewCell.swift in Sources */,
