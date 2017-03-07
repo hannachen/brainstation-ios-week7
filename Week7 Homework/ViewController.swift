@@ -69,7 +69,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                   let location = self.locations[indexPath!.row] as Location? else {
                 return
             }
-            
             detailsViewController.location = location
         }
     }
@@ -83,8 +82,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let location = self.locations[indexPath.row]
         
         // Toggle visit state
-        let toggleState: Bool = !(location.visited)
-        location.visited = toggleState
+        location.visited = !(location.visited)
         
         self.locationTableView.reloadData()
     }

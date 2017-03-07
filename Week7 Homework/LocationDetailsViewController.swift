@@ -13,25 +13,18 @@ class LocationDetailsViewController: UIViewController {
     // Outlets
     @IBOutlet var locationImageView: UIImageView!
     @IBOutlet var locationNameLabel: UILabel!
-    @IBOutlet var descriptionTextView: UITextView!
+    @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var locationDetailsScrollView: UIScrollView!
     @IBOutlet var locationVisitedLabel: UIView!
     
     // Properties
     var location: Location?
-    
     var paragraphStyle = NSMutableParagraphStyle()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Typesetting paragraph styles
-        self.paragraphStyle.lineSpacing = 5
-        let attributes = [NSParagraphStyleAttributeName : self.paragraphStyle]
-        self.descriptionTextView.attributedText = NSAttributedString(string: self.descriptionTextView.text, attributes:attributes)
-        if let fontStyle =  self.descriptionTextView.font as UIFont? {
-            self.descriptionTextView.font = UIFont(name: fontStyle.fontName, size: 14)
-        }
+        
+        self.paragraphStyle.lineSpacing = 4
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,7 +32,7 @@ class LocationDetailsViewController: UIViewController {
         
         // onLoad Animation
         UIView.animate(withDuration: 0.25, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
-            self.descriptionTextView.alpha = 1
+            self.descriptionLabel.alpha = 1
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
@@ -47,9 +40,6 @@ class LocationDetailsViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         
         super.viewDidLayoutSubviews()
-        
-        // Disable text view scroll so that scroll view is activated
-        self.descriptionTextView.isScrollEnabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,8 +54,11 @@ class LocationDetailsViewController: UIViewController {
             self.title = "About \(location.name)"
             self.locationNameLabel.text = location.name
             self.locationImageView.image = location.image
-            self.descriptionTextView.text = location.description
             self.locationVisitedLabel.isHidden = location.visited ? false : true
+            
+            // Typesetting paragraph styles
+            let attributes = [NSParagraphStyleAttributeName: self.paragraphStyle]
+            self.descriptionLabel.attributedText = NSAttributedString(string: location.description, attributes: attributes)
         }
     }
 
