@@ -49,7 +49,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell: LocationTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LocationTableViewCell // Using ! here is a rare exception...
         
         cell.delegate = self
-        cell.rowIndex = indexPath.row
         
         // Set cell data
         cell.setupCellWith(location: self.locations[indexPath.row])

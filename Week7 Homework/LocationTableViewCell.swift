@@ -24,13 +24,13 @@ class LocationTableViewCell: UITableViewCell, UITableViewDelegate {
     @IBOutlet var checkButton: UIButton!
     
     // Properties
-    var rowIndex: Int?
     var delegate: LocationTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
@@ -51,7 +51,7 @@ class LocationTableViewCell: UITableViewCell, UITableViewDelegate {
     
     func setupCellWith(location: Location) {
             
-        // Populate labels with data
+        // Populate UI with data
         self.locationLabel.text = location.name
         self.locationImageView.image = location.image
         
@@ -61,11 +61,11 @@ class LocationTableViewCell: UITableViewCell, UITableViewDelegate {
     
     func updateButton(visited: Bool) {
     
-        // Set button state
+        // Setup styles based on `visited`
         let checkButtonTextColor: UIColor = visited ? self.highlightButtonTextColor : self.defaultButtonTextColor
         let checkButtonBackgroundColor: UIColor = visited ? self.highlightButtonBackgroundColor : self.defaultButtonBackgroundColor
     
-        // Set styles
+        // Apply styles
         self.checkButton.backgroundColor = checkButtonBackgroundColor
         self.checkButton.setTitleColor(checkButtonTextColor, for: .normal)
         
