@@ -50,16 +50,18 @@ class LocationDetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let location = self.location {
-            self.title = "About \(location.name)"
-            self.locationNameLabel.text = location.name
-            self.locationImageView.image = location.image
-            self.locationVisitedLabel.isHidden = location.visited ? false : true
-            
-            // Typesetting paragraph styles
-            let attributes = [NSParagraphStyleAttributeName: self.paragraphStyle]
-            self.descriptionLabel.attributedText = NSAttributedString(string: location.description, attributes: attributes)
+        guard let location = self.location else {
+            return
         }
+        
+        self.title = "About \(location.name)"
+        self.locationNameLabel.text = location.name
+        self.locationImageView.image = location.image
+        self.locationVisitedLabel.isHidden = location.visited ? false : true
+        
+        // Typesetting
+        let attributes = [NSParagraphStyleAttributeName: self.paragraphStyle]
+        self.descriptionLabel.attributedText = NSAttributedString(string: location.description, attributes: attributes)
     }
 
 }

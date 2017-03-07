@@ -24,12 +24,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Set title
         self.title = "Travel to these places!"
         
-        // Assign "self" as the delegate, similar to the previous lesson
-        self.locationTableView.delegate = self
-        
         // Assigns "self" as the data source
         self.locationTableView.dataSource = self
         
+        // Populate data
         self.locations = manager.getLocations()
     }
 
@@ -80,10 +78,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         let location = self.locations[indexPath.row]
-        
-        // Toggle visit state
-        location.visited = !(location.visited)
-        
+        location.visited = !(location.visited) // Toggle visit state
         self.locationTableView.reloadData()
     }
 
