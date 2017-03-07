@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol Updatable {
-    func update(location: Location, index: Int)
+protocol LocationTableViewCellDelegate {
+    func cellToggleButton(cell: LocationTableViewCell)
 }

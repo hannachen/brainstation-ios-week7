@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, Updatable {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, LocationTableViewCellDelegate {
     // Outlets
     @IBOutlet var locationTableView: UITableView!
     
@@ -50,7 +50,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dequeueing our cell
         let cell: LocationTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LocationTableViewCell // Using ! here is a rare exception...
         
-        cell.updateDelegate = self
+        cell.delegate = self
         cell.rowIndex = indexPath.row
         
         // Set cell data
@@ -65,17 +65,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let cell = sender as? LocationTableViewCell
             let indexPath = self.locationTableView.indexPath(for: cell!)
             
-            if let detailsViewController = segue.destination as? LocationDetailsViewController {
-                if let location = self.locations[indexPath!.row] as Location? {
-                    detailsViewController.location = location
-                }
-            
+            guard let detailsViewController = segue.destination as? LocationDetailsViewController,
+                  let location = self.locations[indexPath!.row] as Location? else {
+                return
             }
+            
+            detailsViewController.location = location
         }
     }
     
-    func update(location: Location, index: Int) {
-        self.locations[index] = location
+    func cellToggleButton(cell: LocationTableViewCell) {
+        
+        guard let indexPath = self.locationTableView.indexPath(for: cell) else {
+            return
+        }
+        
+        let location = self.locations[indexPath.row]
+        
+        // Toggle visit state
+        let toggleState: Bool = !(location.visited)
+        location.visited = toggleState
+        
+        self.locationTableView.reloadData()
     }
 
 }
