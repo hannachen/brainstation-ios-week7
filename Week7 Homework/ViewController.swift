@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet var locationTableView: UITableView!
     
     // Data
-    let manager = LocationDataSource()
+    let manager: LocationDataSource = LocationDataSource(name: "LocationJSON")
     
     // Properties
     var locations: [Location] = []
@@ -24,11 +24,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Set title
         self.title = "Travel to these places!"
         
+        // Read data from JSON file and set as locations
+        self.locations = manager.getLocations()
+        
         // Assigns "self" as the data source
         self.locationTableView.dataSource = self
-        
-        // Populate data
-        self.locations = manager.getLocations()
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,16 +58,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if (segue.identifier == "detailview") {
-            let cell = sender as? LocationTableViewCell
-            let indexPath = self.locationTableView.indexPath(for: cell!)
-            
-            guard let detailsViewController = segue.destination as? LocationDetailsViewController,
-                  let location = self.locations[indexPath!.row] as Location? else {
-                return
-            }
-            detailsViewController.location = location
+        // Only handle detailview
+        if (segue.identifier != "detailview") {
+            return
         }
+        let cell = sender as? LocationTableViewCell
+        let indexPath = self.locationTableView.indexPath(for: cell!)
+        
+        guard let detailsViewController = segue.destination as? LocationDetailsViewController,
+              let location = self.locations[indexPath!.row] as Location? else {
+            return
+        }
+        detailsViewController.location = location
     }
     
     func cellToggleButton(cell: LocationTableViewCell) {
@@ -78,6 +80,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let location = self.locations[indexPath.row]
         location.visited = !(location.visited) // Toggle visit state
+        
         self.locationTableView.reloadData()
     }
 
