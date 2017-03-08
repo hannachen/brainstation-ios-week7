@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, LocationTableViewCellDelegate {
+class ViewController: UIViewController, UITableViewDataSource, LocationTableViewCellDelegate {
     // Outlets
     @IBOutlet var locationTableView: UITableView!
     
@@ -58,21 +58,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        // Only handle detailview
         if (segue.identifier != "detailview") {
             return
         }
-        let cell = sender as? LocationTableViewCell
-        let indexPath = self.locationTableView.indexPath(for: cell!)
-        
         guard let detailsViewController = segue.destination as? LocationDetailsViewController,
-              let location = self.locations[indexPath!.row] as Location? else {
+              let indexPath = self.locationTableView.indexPathForSelectedRow,
+              let location = self.locations[indexPath.row] as Location? else {
             return
         }
+        detailsViewController.delegate = self
         detailsViewController.location = location
+        detailsViewController.index = indexPath.row
     }
     
-    func cellToggleButton(cell: LocationTableViewCell) {
+    func cellButtonToggle(cell: LocationTableViewCell) {
         
         guard let indexPath = self.locationTableView.indexPath(for: cell) else {
             return
@@ -83,6 +82,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         self.locationTableView.reloadData()
     }
-
+    
+    func detailsButtonToggle(location: Location, index: Int) {
+        
+        self.locations[index] = location
+        self.locationTableView.reloadData()
+    }
 }
 

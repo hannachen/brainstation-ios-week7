@@ -9,5 +9,8 @@
 import Foundation
 
 protocol LocationTableViewCellDelegate {
-    func cellToggleButton(cell: LocationTableViewCell)
+    
+    func cellButtonToggle(cell: LocationTableViewCell)
+    
+    func detailsButtonToggle(location: Location, index: Int)
 }

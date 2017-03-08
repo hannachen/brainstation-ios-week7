@@ -15,16 +15,23 @@ class LocationDetailsViewController: UIViewController {
     @IBOutlet var locationNameLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var locationDetailsScrollView: UIScrollView!
-    @IBOutlet var locationVisitedLabel: UIView!
+    @IBOutlet var visitedButton: VisitUIButton!
     
     // Properties
     var location: Location?
+    var index: Int?
+    var delegate: LocationTableViewCellDelegate?
     var paragraphStyle = NSMutableParagraphStyle()
+    var visited: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.paragraphStyle.lineSpacing = 4
+        
+        if let location = location {
+            self.visited = location.visited
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,7 +45,6 @@ class LocationDetailsViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        
         super.viewDidLayoutSubviews()
     }
 
@@ -57,11 +63,23 @@ class LocationDetailsViewController: UIViewController {
         self.title = "About \(location.name)"
         self.locationNameLabel.text = location.name
         self.locationImageView.image = location.image
-        self.locationVisitedLabel.isHidden = location.visited ? false : true
+        self.visitedButton.updateButton(visited: location.visited)
         
         // Typesetting
         let attributes = [NSParagraphStyleAttributeName: self.paragraphStyle]
         self.descriptionLabel.attributedText = NSAttributedString(string: location.description, attributes: attributes)
+    }
+    
+    @IBAction func visitButtonClick(_ sender: Any) {
+        guard let delegate = self.delegate,
+              let location = self.location,
+              let index = self.index else {
+            return
+        }
+        self.visited = !self.visited
+        let newLocation = Location(name: location.name, image: location.image, description: location.description, visited: self.visited)
+        delegate.detailsButtonToggle(location: newLocation, index: index)
+        visitedButton.updateButton(visited: newLocation.visited)
     }
 
 }
